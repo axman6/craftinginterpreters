@@ -35,13 +35,18 @@
         };
       in {
         packages.craftinginterpreters-tools = tools-fixed;
-        devShell = with pkgs;
-          mkShell {
-            buildInputs = [
-              #
-              nix-dart.packages.${system}.pub2nix-lock
-              tools-fixed
-            ];
+        devShells = with pkgs;
+          { default =
+            mkShell {
+              buildInputs = [
+                #
+                nix-dart.packages.${system}.pub2nix-lock
+                tools-fixed
+                gnumake
+                jdk
+                dart
+              ];
+            };
           };
       });
 }
