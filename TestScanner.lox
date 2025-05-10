@@ -1,0 +1,18 @@
+() {} is true else false
+
+
+// comment
+
+this is some stuff /*
+super hello if true
+
+*/
+
+123.456
+
+
+"some string"
+
+"A parser is a function
+ from strings
+ to lists of things and strings"
