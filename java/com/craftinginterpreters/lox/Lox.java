@@ -53,7 +53,12 @@ public class Lox {
 
         if (hadError) return;
 
-        interpreter.interpret(statements);
+        if (statements.size() == 1 && statements.get(0) instanceof Stmt.Expression) {
+            Expr expr = ((Stmt.Expression)statements.get(0)).expression;
+            System.out.println(interpreter.stringify(interpreter.evaluate(expr)));
+        } else {
+            interpreter.interpret(statements);
+        }
     }
 
     static void error(int line, String message) {
